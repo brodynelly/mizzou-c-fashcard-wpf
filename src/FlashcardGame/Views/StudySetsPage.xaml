@@ -1,0 +1,68 @@
+﻿<Page x:Class="FlashcardGame.Views.StudySetsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FlashcardGame.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StudySetsPage">
+    <!--
+    <Page.DataContext>
+        <local:StudySetsPage />
+    </Page.DataContext>-->
+    <Grid Background="#2b1b47">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20">
+            <TextBlock Text="{Binding SelectedCourseNameFromList}" FontSize="36" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" x:Name="CourseNameBox"/>
+            <TextBlock Text="Manage your classes flashcards here" FontSize="16" Foreground="White" HorizontalAlignment="Center" Margin="0,10"/>
+        </StackPanel>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,150,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ItemsControl ItemsSource="{Binding StudySetList}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="6" Margin="5">
+                            <StackPanel Orientation="Vertical" Background="#3E2A47" Width="180" Height="180">
+                                <TextBlock Text="{Binding Name}" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" x:Name="nameTextBlock"/>
+                                <Button Content="Study This Set"
+                                Click="Button_Click"
+                                Background="#503A65"
+                                Foreground="White"
+                                BorderThickness="0"
+                                Cursor="Hand"
+                                Padding="10,5"
+                                Margin="10"
+                                VerticalAlignment="Bottom"
+                                Height="40"
+                                HorizontalAlignment="Stretch"/>
+                            </StackPanel>
+
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="4" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+
+            <Border Visibility="{Binding AddClassCardVisibility}" BorderBrush="Gray" BorderThickness="1" CornerRadius="6" Margin="5" Grid.Row="1" Grid.Column="3">
+                <StackPanel Orientation="Vertical" Background="#4A3C57" Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Create New Set" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,10"/>
+                    <TextBlock Text="Add a new flashcard set" Foreground="White" FontSize="11" HorizontalAlignment="Center" />
+                    <Button Content="+" ForceCursor="true" VerticalAlignment="Bottom"  Cursor="Hand" Click="AddCardButton_Click" Padding="10,5" Background="Transparent"  Width="Auto"  FontSize="36" FontWeight="ExtraBold"  Foreground="White" BorderThickness="0"/>
+                </StackPanel>
+            </Border>
+
+        </Grid>
+    </Grid>
+</Page>
