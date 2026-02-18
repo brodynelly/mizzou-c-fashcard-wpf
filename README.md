@@ -4,6 +4,15 @@
 
 A WPF Flashcard application for students to manage courses, study sets, and flashcards.
 
+
+## Tech Stack
+
+- **C# / .NET 8** — application logic
+- **WPF** — Windows Presentation Foundation UI  
+- **MVVM** — architectural pattern
+- **NUnit** — unit testing
+
+
 ## Features
 
 - Create and manage Students.
