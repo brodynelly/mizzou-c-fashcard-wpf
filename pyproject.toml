@@ -1,0 +1,3 @@
+# Tooling config (C# project — Roslyn analyzers configured via .editorconfig)
+[tool.ruff]
+# Not applicable
